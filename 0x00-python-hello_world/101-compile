@@ -1,1 +1,4 @@
-python -m py_compile "$PYFILE"
+#!/bin/bash
+python3 -m py_compile "$PYFILE"
+cp __pycache__/* "$PYFILE"c
+rm -rf __pycache__
