@@ -1,4 +1,4 @@
 #!/usr/bin/python3
-def add(a, b):
+def pow(a, b):
     n = a ** b
     return(n)
