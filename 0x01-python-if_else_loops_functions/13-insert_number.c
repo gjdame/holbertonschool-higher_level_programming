@@ -6,8 +6,10 @@
  */
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *runner = *head;
-	listint_t *new = *head;
+	listint_t *runner;
+	listint_t *new;
+
+	runner = *head;
 
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
