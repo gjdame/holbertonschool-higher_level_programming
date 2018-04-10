@@ -1,5 +1,5 @@
 def magic_calculation(a, b, c):
-    if a > b:
+    if b > a:
         return (c)
     if b > c:
         return(b + a)
