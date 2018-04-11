@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-for i in range(0, 9):
-    for j in range(i + 1, 10):
-        print("{:d}{:d}".format(i, j), end="")
-        if i != 8 or j != 9:
-            print(end=", ")
+for i in range(0, 90):
+    tens = i / 10
+    mod = i % 10
+
+    if mod > tens:
+        if i != 89:
+            print("{}".format('%02d' % i), end=", ")
         else:
-            print("")
+            print("{}".format('%02d' % i))
