@@ -12,7 +12,7 @@ def main(argv):
     else:
         print("{:d} arguments:".format(len(argv) - 1))
         for i, x in enumerate(argv[1:], 1):
-             print("{:d}: {}".format(i, x))
+            print("{:d}: {}".format(i, x))
 
 if __name__ == "__main__":
     import sys
