@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-import string
-print("{}".format(string.ascii_uppercase))
+from string import ascii_uppercase
+print("{}".format(ascii_uppercase))
