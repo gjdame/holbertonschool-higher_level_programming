@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import sys
 from calculator_1 import add, sub, mul, div
 
 
@@ -26,6 +25,7 @@ def main(argv):
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
     print(result)
+
 if __name__ == "__main__":
     import sys
     main(sys.argv)
