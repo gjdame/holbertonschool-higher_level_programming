@@ -16,7 +16,7 @@ int is_palindrome(listint_t **head)
 		return(1);
 	current = *head;
 	len = 0;
-	while (current->next != NULL)
+	while (current != NULL)
 	{
 		current = current->next;
 		len++;
@@ -31,7 +31,7 @@ int is_palindrome(listint_t **head)
 
 	current = *head;
 	i = 0;
-	while(current->next != NULL)
+	while(current != NULL)
 	{
 		arr[i] = current->n;
 		i++;
@@ -39,12 +39,15 @@ int is_palindrome(listint_t **head)
 	}
 
 	j = 0;
-	while(j <= (len / 2))
+	i--;
+	len--;
+	while(i >= (len / 2))
 	{
+		printf("%d\n", arr[j]);
 		if (arr[i] != arr[j])
-			return(1);
+			return(0);
 		i--;
 		j++;
 	}
-	return (0);
+	return (1);
 }
