@@ -43,7 +43,6 @@ int is_palindrome(listint_t **head)
 	len--;
 	while(i >= (len / 2))
 	{
-		printf("%d\n", arr[j]);
 		if (arr[i] != arr[j])
 			return(0);
 		i--;
