@@ -10,10 +10,8 @@ int is_palindrome(listint_t **head)
 	const listint_t *current;
 	int len;
 	int i, j;
-	int arr[1024];
+	int *arr;
 
-	if (*head == NULL)
-		return(1);
 	current = *head;
 	len = 0;
 	while (current != NULL)
@@ -22,7 +20,8 @@ int is_palindrome(listint_t **head)
 		len++;
 	}
 
-	if (len == 1)
+	arr = malloc(sizeof(int) * len);
+	if (arr == NULL)
 		return(1);
 
 	current = *head;
@@ -35,16 +34,12 @@ int is_palindrome(listint_t **head)
 	}
 
 	j = 0;
-	i--;
-	len--;
 	while(i >= (len / 2))
 	{
 		if (arr[i] != arr[j])
-		{
-			return(0);
-		}
+			return(1);
 		i--;
 		j++;
 	}
-	return (1);
+	return (0);
 }
