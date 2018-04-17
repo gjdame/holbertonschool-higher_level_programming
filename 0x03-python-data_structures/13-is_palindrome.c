@@ -10,7 +10,7 @@ int is_palindrome(listint_t **head)
 	const listint_t *current;
 	int len;
 	int i, j;
-	int arr[1024];
+	int arr[10000];
 
 	if (*head == NULL)
 		return(1);
@@ -40,9 +40,7 @@ int is_palindrome(listint_t **head)
 	while(i >= (len / 2))
 	{
 		if (arr[i] != arr[j])
-		{
 			return(0);
-		}
 		i--;
 		j++;
 	}
