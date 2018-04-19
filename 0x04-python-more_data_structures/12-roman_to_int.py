@@ -3,7 +3,7 @@
 
 def roman_to_int(roman_string):
 
-    if roman_string and isinstance(roman_string, str):
+    if isinstance(roman_string, str):
         list_n = []
         total = 0
         nums = {'M': 1000, 'D': 500, 'C': 100, 'L': 50,
@@ -23,4 +23,5 @@ def roman_to_int(roman_string):
             else:
                 total += list_n[i]
         total += list_n[i + 1]
-    return total
+        return total
+    return 0
