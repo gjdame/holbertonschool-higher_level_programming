@@ -23,4 +23,4 @@ def roman_to_int(roman_string):
             else:
                 total += list_n[i]
         total += list_n[i + 1]
-        return total
+    return total
