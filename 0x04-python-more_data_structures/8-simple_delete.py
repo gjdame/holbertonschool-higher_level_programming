@@ -3,6 +3,7 @@
 
 def simple_delete(a_dictionary, key=""):
 
-    if a_dictionary and key in a_dictionary:
+    if a_dictionary.get(key):
         del a_dictionary[key]
-        return(a_dictionary)
+
+    return(a_dictionary)

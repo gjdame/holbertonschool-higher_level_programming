@@ -3,10 +3,11 @@
 
 def roman_to_int(roman_string):
 
-    if isinstance(roman_string, str):
-        list_n =[]
+    if roman_string and isinstance(roman_string, str):
+        list_n = []
         total = 0
-        nums = {'M': 1000, 'D': 500, 'C': 100, 'L':50, 'X': 10, 'V': 5, 'I': 1}
+        nums = {'M': 1000, 'D': 500, 'C': 100, 'L': 50,
+                'X': 10, 'V': 5, 'I': 1}
         for i in roman_string:
             if i in nums.keys():
                 list_n.append(nums[i])
