@@ -48,14 +48,17 @@ class Square:
             raise ValueError('position must be a tuple of 2 positive integers')
         self.__position = position
 
-    def my_print(self):
+    def __str__(self):
         """prints square offsetting it by position with symbol #"""
+        my_list = []
         if self.__position[1]:
-            print('' * self.__position[1])
+            my_list.append('\n' * self.__position[1])
         for i in range(self.__size):
             if self.__position[0]:
-                print(' ' * self.__position[0], end="")
-            print('#' * self.__size, end='')
-            print('')
+                my_list.append(' ' * self.__position[0])
+            my_list.append('#' * self.__size)
+            my_list.append('\n')
         if self.__size == 0:
-            print('')
+            my_list.append('\n')
+        final = ''.join(str(elem) for elem in my_list)
+        return(final)
