@@ -24,7 +24,7 @@ class Node:
     @next_node.setter
     def next_node(self, value):
         """sets link to next node"""
-        if value is not type(Node) or next_node is not None:
+        if type(value) is not Node or next_node is not None:
             raise TypeError('next_node must be a Node object')
         self.__next_node = value
 
