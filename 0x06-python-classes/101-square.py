@@ -8,10 +8,6 @@ class Square:
         Args:
             size: size of square
             position: position to indent square"""
-        if not isinstance(size, int):
-            raise TypeError('size must be an integer')
-        if size < 0:
-            raise ValueError('size must be >= 0')
         self.__size = size
         self.__position = position
 
@@ -42,11 +38,13 @@ class Square:
     @position.setter
     def position(self, value):
         """sets position"""
+        if type(value) is not tuple or len(value) != 2:
+            raise TypeError('position must be a tuple of 2 positive integers')
         if not isinstance(value[0], int) or not isinstance(value[1], int):
             raise TypeError('position must be a tuple of 2 positive integers')
         if value[0] < 0 or value[1]:
             raise ValueError('position must be a tuple of 2 positive integers')
-        self.__position = position
+        self.__position = value
 
     def my_print(self):
         """prints square offsetting it by position with symbol #"""
@@ -60,15 +58,9 @@ class Square:
 
     def __str__(self):
         """prints square offsetting it by position with symbol #"""
-        my_list = []
-        if self.__position[1]:
-            my_list.append('\n' * self.__position[1])
-        for i in range(self.__size):
-            if self.__position[0]:
-                my_list.append(' ' * self.__position[0])
-            my_list.append('#' * self.__size)
-            my_list.append('\n')
         if self.__size == 0:
-            my_list.append('\n')
-        final = ''.join(str(elem) for elem in my_list)
-        return(final)
+            return ''
+        new_lines = '\n' * self.position[1]
+        spaces = ' ' * self.position[0]
+        hashes = '#' * self.size
+        return new_lines + '\n'.join(spaces + hashes for elem in range(self.size))
