@@ -58,6 +58,8 @@ class SinglyLinkedList:
     def __str__(self):
         """ creates a list of linked list, sorts, and prints"""
         my_list = []
+        if self.__head is None:
+            return("")
         runner = self.__head
         while runner is not None:
             my_list.append(runner.data)
