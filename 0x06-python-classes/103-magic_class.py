@@ -13,10 +13,10 @@ class MagicClass:
         else:
             self.__radius = radius
 
-    def area(self, radius):
+    def area(self):
         """returns area"""
         return self._MagicClass__radius ** 2 * math.pi
 
-    def circumference(self, radius):
+    def circumference(self):
         """returns circumference"""
         return 2 * math.pi * self._MagicClass__radius
