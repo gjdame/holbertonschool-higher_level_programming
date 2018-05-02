@@ -18,8 +18,8 @@ class Square:
         elif position[0] < 0 or position[1] < 0:
             raise ValueError('position must be a tuple of 2 positive integers')
         else:
-            self.__size = size
-            self.__position = position
+            self.size = size
+            self.position = position
 
     def area(self):
         """Determines area"""
