@@ -10,10 +10,11 @@ class Square:
             position: position to indent square"""
         if type(size) is not int:
             raise TypeError('size must be an integer')
-        if size < 0:
+        elif size < 0:
             raise ValueError('size must be >= 0')
-        self.__size = size
-        self.__position = position
+        else:
+            self.__size = size
+            self.__position = position
 
     def area(self):
         """Determines area"""
@@ -30,9 +31,10 @@ class Square:
         """sets size"""
         if type(value) is not int:
             raise TypeError('size must be an integer')
-        if value < 0:
+        elif value < 0:
             raise ValueError('size must be >= 0')
-        self.__size = value
+        else:
+            self.__size = value
 
     @property
     def position(self):
@@ -44,9 +46,10 @@ class Square:
         """sets position"""
         if type(value[0]) is not int or type(value[1]) is not int:
             raise TypeError('position must be a tuple of 2 positive integers')
-        if value[0] < 0 or value[1] < 0:
+        elif value[0] < 0 or value[1] < 0:
             raise ValueError('position must be a tuple of 2 positive integers')
-        self.__position = position
+        else:
+            self.__position = position
 
     def my_print(self):
         """prints square offsetting it by position with symbol #"""
