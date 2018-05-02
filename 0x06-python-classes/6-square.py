@@ -58,10 +58,10 @@ class Square:
 
     def my_print(self):
         """prints square offsetting it by position with symbol #"""
-        if self.size == 0:
+        if self.__size == 0:
             print('')
             return
         for i in range(self.__position[1]):
             print('')
         for i in range(self.__size):
-                print("{}{}".format('' * self.__position[0], '#' * self.__size))
+            print("{}{}".format(' ' * self.__position[0], '#' * self.__size))
