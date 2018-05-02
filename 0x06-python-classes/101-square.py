@@ -63,4 +63,4 @@ class Square:
         new_lines = '\n' * self.position[1]
         spaces = ' ' * self.position[0]
         hashes = '#' * self.size
-        return new_lines + '\n'.join(spaces + hashes for elem in range(self.size))
+        return new_lines + '\n'.join(spaces + hashes for e in range(self.size))
