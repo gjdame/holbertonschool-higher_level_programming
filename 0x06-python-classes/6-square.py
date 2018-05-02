@@ -11,12 +11,8 @@ class Square:
         """
         if type(size) is not int:
             raise TypeError('size must be an integer')
-        elif size < 0:
+        if size < 0:
             raise ValueError('size must be >= 0')
-        elif type(position[0]) is not int or type(position[1]) is not int:
-            raise TypeError('position must be a tuple of 2 positive integers')
-        elif position[0] < 0 or position[1] < 0:
-            raise ValueError('position must be a tuple of 2 positive integers')
         else:
             self.size = size
             self.position = position
@@ -53,7 +49,7 @@ class Square:
         """
         if type(value[0]) is not int or type(value[1]) is not int:
             raise TypeError('position must be a tuple of 2 positive integers')
-        elif type(value) is not tuple:
+        elif type(value) is not tuple or len(value) != 2:
             raise TypeError('position must be a tuple of 2 positive integers')
         elif value[0] < 0 or value[1] < 0:
             raise ValueError('position must be a tuple of 2 positive integers')
@@ -64,6 +60,7 @@ class Square:
         """prints square offsetting it by position with symbol #"""
         if self.__size == 0:
             print('')
+            return
         for i in range(self.__position[1]):
             print('')
         for i in range(self.__size):
