@@ -4,6 +4,14 @@
 class Node:
     """creates node for singly linked lists"""
 
+    def __init__(self, data, next_node=None):
+        """initializes node instance
+        Args:
+            data: data in node
+            next_node: next node in list"""
+        self.data = data
+        self.next_node = next_node
+
     @property
     def data(self):
         """gets data"""
@@ -24,20 +32,10 @@ class Node:
     @next_node.setter
     def next_node(self, value):
         """sets link to next node"""
-        if type(value) is not Node or next_node is not None:
+        if not isinstance(value, Node) and value is not None:
             raise TypeError('next_node must be a Node object')
-        self.__next_node = value
-
-    def __init__(self, data, next_node=None):
-        """initializes node instance
-        Args:
-            data: data in node
-            next_node: next node in list"""
-        if not isinstance(data, int):
-            raise TypeError('data must be an integer')
-        self.__data = data
-        self.__next_node = next_node
-
+        else:
+            self.__next_node = value
 
 class SinglyLinkedList:
     """defines a singly linked list"""
@@ -50,16 +48,15 @@ class SinglyLinkedList:
         """inserts a node
         Args:
             value: data value of node"""
-        if not isinstance(value, int):
-            raise TypeError('data must be an integer')
+        if self.__head is None:
+            self.__head = Node(value, self.__head)
+            return
         new_node = Node(value, self.__head)
         self.__head = new_node
 
     def __str__(self):
         """ creates a list of linked list, sorts, and prints"""
         my_list = []
-        if self.__head is None:
-            return("")
         runner = self.__head
         while runner is not None:
             my_list.append(runner.data)
