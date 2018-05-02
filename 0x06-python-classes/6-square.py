@@ -42,20 +42,18 @@ class Square:
     @position.setter
     def position(self, value):
         """sets position"""
-        if not isinstance(value[0], int) or not isinstance(value[1], int):
+        if type(value[0]) is not int or type(value[1]) is not int:
             raise TypeError('position must be a tuple of 2 positive integers')
-        if value[0] < 0 or value[1]:
+        if value[0] < 0 or value[1] < 0:
             raise ValueError('position must be a tuple of 2 positive integers')
         self.__position = position
 
     def my_print(self):
         """prints square offsetting it by position with symbol #"""
-        if self.__position[1]:
-            print('' * self.__position[1])
-        for i in range(self.__size):
-            if self.__position[0]:
-                print(' ' * self.__position[0], end="")
-            print('#' * self.__size, end='')
-            print('')
         if self.__size == 0:
             print('')
+        for i in range(self.__position[1]):
+            print('')
+        for i in range(self.__size):
+                print(' ' * self.__position[0] + '#' * self.__size, end="")
+                print('')
