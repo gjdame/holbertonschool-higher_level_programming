@@ -1,0 +1,38 @@
+The ``0-add_integer.py`` module
+======================
+
+Using ``add_integer``
+-------------------
+
+>>> add_integer = __import__("0-add_integer").add_integer
+
+>>> add_integer(2 ,3)
+5
+
+>>> add_integer(2)
+100
+
+>>> add_integer()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+>>> add_integer('b', 32)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer('holberton', 1)
+Traceback (most recent call last):
+    raise TypeError('a must be an integer')
+TypeError: a must be an integer
+
+>>> add_integer(1, "h")
+Traceback (most recent call last):
+    raise TypeError('b must be an integer')
+TypeError: b must be an integer
+
+>>> add_integer(3.24, 4.5)
+7
+
+>>> add_integer(3.99, 3)
+6
