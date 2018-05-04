@@ -1,0 +1,62 @@
+The ``100-matrix_mul`` module
+=================================
+
+Using ``matrix_mul``
+---------------------------------
+
+
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+>>> print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+[[7, 10], [15, 22]]
+
+>>> print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+[[13, 16]]
+
+>>> print(matrix_mul([[1, 2]], [[3, 'a'], [5, 6]]))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+    raise TypeError('m_b should contain only integers or floats')
+TypeError: m_b should contain only integers or floats
+
+>>> print(matrix_mul([[1, 2]], [['a', 4], [5, 6]]))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+    raise TypeError('m_b should contain only integers or floats')
+TypeError: m_b should contain only integers or floats
+
+>>> print(matrix_mul([[1, 'hold']], [[3, 4], [5, 6]]))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+    raise TypeError('m_a should contain only integers or floats')
+TypeError: m_a should contain only integers or floats
+
+>>> print(matrix_mul([[1, 2, 3]], [[3, 4], [5, 6]]))
+[[13, 16]]
+
+>>> print(matrix_mul([[1, 2, 3]], [[3, 4, 4, 5], [5, 6]]))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+    raise TypeError('each row of m_b must should be of the same size')
+TypeError: each row of m_b must should be of the same size
+
+>>> print(matrix_mul([[]], [[], []]))
+[[]]
+>>> print(matrix_mul([[]]))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+>>> print(matrix_mul([[]],[[]]))
+[[]]
+
+>>> print(matrix_mul([[1, 2, 3]], [[3, 4]]))
+[[3, 4]]
+
+>>> print(matrix_mul([[1, 2.56, 3]], [[3, 4.54]]))
+[[3, 4.54]]
+
+>>> print(matrix_mul([[1, 2, 3]], [[3, (4, 5)]]))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+    raise TypeError('m_b should contain only integers or floats')
+TypeError: m_b should contain only integers or floats
