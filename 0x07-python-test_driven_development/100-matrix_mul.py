@@ -29,9 +29,8 @@ def matrix_mul(m_a, m_b):
     for row in m_b:
         if len(row) is not b:
             raise TypeError('each row of m_b must should be of the same size')
-    try:
-        result = [[sum(x * y for x, y in zip(m_a_row, m_b_col))
+    if len(m_a[0] is not len(m_b):
+        raise ValueError('m_a and m_b can\'t be multiplied')
+    result = [[sum(x * y for x, y in zip(m_a_row, m_b_col))
                    for m_b_col in zip(*m_b)] for m_a_row in m_a]
-        return(result)
-    except ValueError:
-        print('m_a and m_b can\'t be multiplied')
+    return(result)
