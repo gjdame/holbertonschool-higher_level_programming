@@ -26,9 +26,22 @@ class TestMaxInteger(unittest.TestCase):
         my_list = []
         self.assertEqual(max_integer(my_list), None)
 
+    def testWord(self):
+        my_list = ['what', 'off', 'gumby']
+        self.assertEqual(max_integer(my_list), 'what')
+
     def testFailBasic(self):
         my_list = [1, 4, 'A']
         self.assertRaises(TypeError, max_integer, my_list)
+
+    def testFailDict(self):
+        my_list = {'a': 2, 'b': 1, 'c': 3}
+        self.assertRaises(KeyError, max_integer, my_list)
+
+    def testPassDict(self):
+        my_list = {0: 'a', 1: 'z', 2: 'c'}
+        self.assertEqual(max_integer(my_list), 'z')
+
 
 if __name__ == '__main__':
     unittest.main()

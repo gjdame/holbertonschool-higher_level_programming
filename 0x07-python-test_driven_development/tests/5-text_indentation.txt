@@ -60,4 +60,9 @@ TypeError: text must be a string
 <BLANKLINE>
 .
 <BLANKLINE>
->>>
+>>> try:
+...     text_indentation(42)
+... except Exception as e:
+...     print(e)
+...
+text must be a string
