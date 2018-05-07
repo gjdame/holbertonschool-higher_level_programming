@@ -14,4 +14,4 @@ def text_indentation(text):
             print(text[begin: i + 1].strip() + '\n')
             begin = i + 1
     if begin < len(text):
-        print(text[begin:].strip(),end="")
+        print(text[begin:].strip(), end="")
