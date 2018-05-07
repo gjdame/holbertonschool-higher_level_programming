@@ -13,9 +13,9 @@ def matrix_mul(m_a, m_b):
         raise TypeError('m_a must be a list')
     if all(isinstance(row, list) for row in m_b) is False:
         raise TypeError('m_b must be a list')
-    if m_a == []:
+    if m_a == [[]]:
         raise ValueError('m_a can\'t be empty')
-    if m_b == []:
+    if m_b == [[]]:
         raise ValueError('m_b can\'t be empty')
     if all(isinstance(el, (int, float)) for row in m_a for el in row) is False:
         raise TypeError('m_a should contain only integers or floats')
