@@ -12,28 +12,34 @@ Using ``lazy_matrix_mul``
  [15 22]]
 >>> print(lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
 [[13 16]]
->>> print(lazy_matrix_mul([[1, 2]], [[3, 4], [5, 'A']]))
+>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+>>> import numpy
+>>> m_a = [[1, 2], [3, 4]]
+>>> m_b = [[5, 6], [7, 8]]
+>>> print(lazy_matrix_mul(m_a, m_b))
+[[19 22]
+ [43 50]]
+>>> m_a = [[1, 2], []]
+>>> m_b = [[5, 6], [7, 8]]
+>>> print(lazy_matrix_mul(m_a, m_b))
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-    raise TypeError('m_b should contain only integers or floats')
-TypeError: m_b should contain only integers or floats
->>> print(lazy_matrix_mul([[1, 'cd']], [[3, 4], [5, 6]]))
+  File "101-lazy_matrix_mul.py", line 14, in lazy_matrix_mul
+    result = numpy.dot(m_a, m_b)
+ValueError: setting an array element with a sequence.
+>>> m_a = [[1, 2], 'holberton']
+>>> m_b = [[5, 6], [7, 8]]
+>>> print(lazy_matrix_mul(m_a, m_b))
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-    raise TypeError('m_a should contain only integers or floats')
-TypeError: m_a should contain only integers or floats
->>> print(lazy_matrix_mul([[]], [[], []]))
+  File "101-lazy_matrix_mul.py", line 14, in lazy_matrix_mul
+    result = numpy.dot(m_a, m_b)
+ValueError: cannot set an array element with a sequence
+>>> m_b = [[], []]
+>>> m_a = [[], []]
+>>> print(lazy_matrix_mul(m_a, m_b))
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-    raise ValueError('m_a and m_b can\'t be multiplied')
-ValueError: m_a and m_b can't be multiplied
->>> print(lazy_matrix_mul("GREG", "Greg"))
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-    raise TypeError('m_a must be a list')
-TypeError: m_a must be a list
->>> print(lazy_matrix_mul([[]], "Greg"))
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-    raise TypeError('m_b must be a list')
-TypeError: m_b must be a list
+  File "101-lazy_matrix_mul.py", line 14, in lazy_matrix_mul
+    result = numpy.dot(m_a, m_b)
+ValueError: objects are not aligned
