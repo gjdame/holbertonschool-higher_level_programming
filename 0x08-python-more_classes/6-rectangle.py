@@ -42,7 +42,7 @@ class Rectangle:
         return("Rectangle({}, {})".format(self.width, self.height))
 
     def __del__(self):
-        print("Bye rectangle…")
+        print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
 
     @property
@@ -75,6 +75,6 @@ class Rectangle:
         """
         if not isinstance(value, int):
             raise TypeError('height must be an integer')
-        if height < 0:
+        if value < 0:
             raise ValueError('height must be >= 0')
         self.__height = value
