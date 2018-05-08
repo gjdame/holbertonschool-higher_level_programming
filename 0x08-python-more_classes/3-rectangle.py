@@ -5,14 +5,21 @@ class Rectangle:
     """Empty class Rectangle"""
 
     def __init__(self, width=0, height=0):
+        """intializer for Rectangle
+        Args
+           width
+           height
+        """
         self.width = width
         self.height = height
 
     def area(self):
+        """computes area"""
         res = self.width * self.height
         return(res)
 
     def perimeter(self):
+        """computers perimeter"""
         if self.width == 0 or self.height == 0:
             res = 0
             return(res)

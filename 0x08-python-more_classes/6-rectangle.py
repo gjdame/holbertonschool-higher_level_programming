@@ -7,15 +7,22 @@ class Rectangle:
     number_of_instances = 0
 
     def __init__(self, width=0, height=0):
+        """initializes Rectangle
+        Args:
+            width
+            height
+        """
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
 
     def area(self):
+        """computes area"""
         res = self.width * self.height
         return(res)
 
     def perimeter(self):
+        """computers perimeter"""
         if self.width == 0 or self.height == 0:
             res = 0
             return(res)

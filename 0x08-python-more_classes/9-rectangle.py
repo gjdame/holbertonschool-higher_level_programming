@@ -8,15 +8,22 @@ class Rectangle:
     print_symbol = '#'
 
     def __init__(self, width=0, height=0):
+        """initializer
+        Args
+           width
+           height
+        """
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
 
     def area(self):
+        """computer area"""
         res = self.width * self.height
         return(res)
 
     def perimeter(self):
+        """computers perimeter"""
         if self.width == 0 or self.height == 0:
             res = 0
             return(res)
@@ -40,6 +47,13 @@ class Rectangle:
         Rectangle.number_of_instances -= 1
 
     def bigger_or_equal(rect_1, rect_2):
+        """comapres 2 rectangles
+        Args
+           rect_1
+           rect_2
+        Returns whether 1 or 2 is lager,
+        returns 1 if same
+        """
         if not isinstance(rect_1, Rectangle):
             raise TypeError('rect_1 must be an instance of Rectangle')
         if not isinstance(rect_2, Rectangle):

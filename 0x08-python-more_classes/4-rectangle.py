@@ -2,17 +2,24 @@
 
 
 class Rectangle:
-    """Empty class Rectangle"""
+    """class Rectangle"""
 
     def __init__(self, width=0, height=0):
+        """initialzes Rectangle
+        Args
+           width
+           height
+        """
         self.width = width
         self.height = height
 
     def area(self):
+        """defines area"""
         res = self.width * self.height
         return(res)
 
     def perimeter(self):
+        """defines perimeter"""
         if self.width == 0 or self.height == 0:
             res = 0
             return(res)
