@@ -1,0 +1,1 @@
+0x09 everythin is object
