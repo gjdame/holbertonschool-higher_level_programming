@@ -9,9 +9,7 @@ def add_attribute(obj, name, value):
        value
     Return: error if not possible
     """
-    if hasattr(obj, '__slots__'):
+    if hasattr(obj, '__slots__') or not hasattr(obj, '__dict__'):
         raise TypeError('can\'t add new attribute')
-    elif hasattr(obj, '__dict__'):
-        obj.name = value
     else:
-        raise TypeError('can\'t add new attribute')
+        obj.name = value
