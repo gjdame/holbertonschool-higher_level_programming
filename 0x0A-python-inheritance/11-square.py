@@ -12,9 +12,9 @@ class Square(Rectangle):
         Args
            size: size of side of square
         """
+        super().integer_validator('size', size):
         Rectangle.__init__(self, size, size)
-        if not super().integer_validator('size', size):
-            self.__size = size
+        self.__size = size
 
     def __str__(self):
         """returns dimension of square"""
