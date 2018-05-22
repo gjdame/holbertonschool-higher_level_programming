@@ -1,0 +1,14 @@
+# Unignore all with extensions
+!*.*
+# Unignore all dirs
+!*/
+# Ignore emacs autosave~ and #modified# files
+*~
+**/*~
+**/\#*
+# Ignore main files
+**/*main.c
+**/*main.py
+# ignore _putchar.c and a.out
+**/_putchar.c
+**/a.out
