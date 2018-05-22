@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import unittest
+import json
 from models.rectangle import Rectangle
 from models.base import Base
 from models.square import Square
@@ -17,6 +18,19 @@ class TestBase(unittest.TestCase):
         self.assertIsNotNone(from_json_string.__doc__)
         self.assertIsNotNone(create.__doc__)
         self.assertIsNotNone(load_from_file.__doc__)
+
+    def test_00_documentation(self):
+        """
+        Test to see if documentation is
+        created and correct
+        """
+        self.assertTrue(hasattr(Base, "__init__"))
+        self.assertTrue(hasattr(Base, "create"))
+        self.assertTrue(hasattr(Base, "to_json_string"))
+        self.assertTrue(hasattr(Base, "from_json_string"))
+        self.assertTrue(hasattr(Base, "save_to_file"))
+        self.assertTrue(hasattr(Base, "load_from_file"))
+
 
     @classmethod
     def setUpClass(cls):
@@ -78,6 +92,20 @@ class TestBase(unittest.TestCase):
             self.assertIsInstance(square, Square)
 
         Base._Base__nb_objects -= 4
+
+    def test_empty(self):
+        """Test to check from empty"""
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", mode="r") as myFile:
+            self.assertEqual([], json.load(myFile))
+
+    def test_None(self):
+        """
+        Test to check from none empty
+        """
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", mode="r") as myFile:
+            self.assertEqual([], json.load(myFile))
 
 if __name__ == "__main__":
     unittest.main()
