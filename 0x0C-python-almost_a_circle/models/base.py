@@ -18,7 +18,6 @@ class Base:
             self.id = Base.__nb_objects
         else:
             self.id = id
-            Base.__nb_objects += 1
 
     @staticmethod
     def to_json_string(list_dictionaries):
