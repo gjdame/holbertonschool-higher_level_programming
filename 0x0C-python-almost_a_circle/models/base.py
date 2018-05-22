@@ -54,7 +54,7 @@ class Base:
         Args
            json_string - represents a list of dictionaries
         """
-        return(json.loads(json_string))
+        return(json.loads(json_string or []))
 
     @classmethod
     def create(cls, **dictionary):
