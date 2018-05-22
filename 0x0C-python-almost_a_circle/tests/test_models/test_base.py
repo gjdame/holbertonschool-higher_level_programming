@@ -5,6 +5,7 @@ from models.rectangle import Rectangle
 from models.base import Base
 from models.square import Square
 import sys
+import os
 from io import StringIO
 
 
@@ -44,7 +45,10 @@ class TestBase(unittest.TestCase):
         list_rectangles_input = [self.r1, self.r3]
 
         Rectangle.save_to_file(list_rectangles_input)
-
+        self.assertTrue(os.path.isfile('Rectangle.json'))
+        with open('Rectangle.json', 'r') as f:
+            r_total = sum(1 for _ in f)
+        self.assertGreater(r_total, 0)
         list_rectangles_output = Rectangle.load_from_file()
 
         for rect in list_rectangles_input:
@@ -56,7 +60,11 @@ class TestBase(unittest.TestCase):
         list_squares_input = [self.s1, self.s2]
 
         Square.save_to_file(list_squares_input)
+        self.assertTrue(os.path.isfile('Square.json'))
 
+        with open('Square.json', 'r') as f:
+            s_total = sum(1 for _ in f)
+        self.assertGreater(s_total, 0)
         list_squares_output = Square.load_from_file()
 
         for square in list_squares_input:
