@@ -10,8 +10,17 @@ from io import StringIO
 
 class TestRectangle(unittest.TestCase):
 
-    def checking(self):
-        self.assertIsNotNone(Base.__doc__)
+    def checking_docstring(self):
+        self.assertIsNotNone(Rectangle.__doc__)
+        self.assertIsNotNone(width.__doc__)
+        self.assertIsNotNone(height.__doc__)
+        self.assertIsNotNone(x.__doc__)
+        self.assertIsNotNone(y.__doc__)
+        self.assertIsNotNone(area.__doc__)
+        self.assertIsNotNone(display.__doc__)
+        self.assertIsNotNone(__str__.__doc__)
+        self.assertIsNotNone(update.__doc__)
+        self.assertIsNotNone(to_dictionary.__doc__)
 
     @classmethod
     def setUpClass(cls):
@@ -42,7 +51,7 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError, msg="y must be >=0"):
             r41 = Rectangle(10, 2, 3, -1)
 
-    def test_areas(self):
+    def test_area(self):
         self.assertEqual(self.r1.area(), 20)
         self.assertEqual(self.r3.area(), 8)
 

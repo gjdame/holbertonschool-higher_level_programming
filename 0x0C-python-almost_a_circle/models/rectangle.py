@@ -114,9 +114,11 @@ class Rectangle(Base):
             for k, v in zip(keys, args):
                 setattr(self, k, v)
         else:
+            keys = ['id', 'width', 'height', 'x', 'y']
             if kwargs is not None:
                 for k, v in kwargs.items():
-                    setattr(self, k, v)
+                    if k in keys:
+                        setattr(self, k, v)
 
     def to_dictionary(self):
         """dictiobnary representation of rectangle"""

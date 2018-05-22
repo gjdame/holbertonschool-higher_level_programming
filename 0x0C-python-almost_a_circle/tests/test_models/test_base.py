@@ -13,6 +13,10 @@ class TestBase(unittest.TestCase):
 
     def checking(self):
         self.assertIsNotNone(Base.__doc__)
+        self.assertIsNotNone(save_to_file.__doc__)
+        self.assertIsNotNone(from_json_string.__doc__)
+        self.assertIsNotNone(create.__doc__)
+        self.assertIsNotNone(load_from_file.__doc__)
 
     @classmethod
     def setUpClass(cls):
@@ -22,7 +26,7 @@ class TestBase(unittest.TestCase):
         cls.s1 = Square(5, id=99)
         cls.s2 = Square(7, 9, 1, id=78)
 
-    def test_to_json_string(self):
+    def test_to_json_string_AND_from_json_string(self):
         list_input = [
             {'id': 89, 'width': 10, 'height': 4},
             {'id': 7, 'width': 1, 'height': 7}
@@ -33,7 +37,7 @@ class TestBase(unittest.TestCase):
         self.assertIsInstance(json_list_input, str)
         self.assertIsInstance(list_output, list)
 
-    def test_dict_to_dict_instance(self):
+    def test_create(self):
         r1_dictionary = self.r1.to_dictionary()
         r2 = Rectangle.create(**r1_dictionary)
         self.assertEqual(self.r1.__str__(), '[Rectangle] (9) 1/0 - 3/5')
@@ -41,7 +45,7 @@ class TestBase(unittest.TestCase):
         self.assertFalse(self.r1 is r2)
         self.assertFalse(self.r1 == r2)
 
-    def test_instances(self):
+    def test_save_to_file_AND_load_from_file(self):
         list_rectangles_input = [self.r1, self.r3]
 
         Rectangle.save_to_file(list_rectangles_input)

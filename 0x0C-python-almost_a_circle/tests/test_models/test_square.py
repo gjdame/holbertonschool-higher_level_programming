@@ -14,7 +14,10 @@ from models.square import Square
 class TestSquare(unittest.TestCase):
 
     def checking(self):
-        self.assertIsNotNone(Base.__doc__)
+        self.assertIsNotNone(Square.__doc__)
+        self.assertIsNotNone(size.__doc__)
+        self.assertIsNotNone(update.__doc__)
+        self.assertIsNotNone(to_dictionary.__doc__)
 
     @classmethod
     def setUpClass(cls):
@@ -22,11 +25,15 @@ class TestSquare(unittest.TestCase):
         cls.s1 = Square(2, 2)
         cls.s2 = Square(size=4, x=2, y=3)
 
+    def test_id(self):
+        self.assertTrue(self.s1.id, 1)
+        self.assertTrue(self.s2.id, 2)
+
     def test_area(self):
         self.assertTrue(self.s1.area(), 4)
         self.assertTrue(self.s2.area(), 16)
 
-    def test_fail(self):
+    def test_attr_square(self):
         with self.assertRaises(TypeError):
             Square('A')
         with self.assertRaises(ValueError):
