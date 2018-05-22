@@ -4,7 +4,7 @@
 """
 
 import unittest
-import io
+from io import StringIO
 import sys
 from models.base import Base
 from models.rectangle import Rectangle
@@ -33,8 +33,8 @@ class TestSquare(unittest.TestCase):
             Square(size=1, y='A')
 
     def test_str(self):
-        self.assertEqual(str(self.s1), '[Square] (1) 2/0 - 2')
-        self.assertEqual(str(self.s2), '[Square] (2) 2/3 - 4')
+        self.assertEqual(str(self.s1), '[Square] (3) 2/0 - 2')
+        self.assertEqual(str(self.s2), '[Square] (4) 2/3 - 4')
 
     def test_update(self):
         tmp = Square(5)
@@ -44,6 +44,20 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(str(tmp), '[Square] (1) 0/0 - 2')
         tmp.update(1, 2, 3)
         self.assertEqual(str(tmp), '[Square] (1) 3/0 - 2')
+
+    def test_display(self):
+        Base._Base__nb_objects = 0
+        old_stdout = sys.stdout
+        sys.stdout = mystdout = StringIO()
+        r1 = Square(4)
+        r1.display()
+        sys.stdout = old_stdout
+        self.assertEqual(mystdout.getvalue(), "####\n####\n####\n####\n")
+        sys.stdout = mystdout = StringIO()
+        r1 = Rectangle(2, 2, 2, 2)
+        r1.display()
+        self.assertEqual(mystdout.getvalue(), "\n\n  ##\n  ##\n")
+        sys.stdout = old_stdout
 
 if __name__ == '__main__':
     unittest.main()
