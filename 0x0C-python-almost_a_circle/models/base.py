@@ -63,9 +63,9 @@ class Base:
             cls - class
             **dictionary - double pointer to a dictionary
         """
-        if cls.__name__ == Rectangle:
+        if cls.__name__ is 'Rectangle':
             tmp = cls(1, 1)
-        if cls.__name__ == Square:
+        if cls.__name__ is 'Square':
             tmp = cls(1)
         tmp.update(**dictionary)
         return(tmp)
