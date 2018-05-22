@@ -1,33 +1,61 @@
 #!/usr/bin/python3
 
 
-def Nqueens(argv):
-    import sys
-    size = int(argv[1])
-    board = [[0] * size for i in range(size) for i in range(size)]
-    queens(size, board)
+import sys
 
-def attack(row, col):
-    for x in range(size):
-        if board[row][col] == 1 or board[x][col] == 1:
-            return True
-    for x in range(size):
-        for y in range(size):
-            if (x + y == row + col) or (x - y == row - col):
-                if board[x][y] == 1:
-                    return True
-    return False
-def queens(size, board):
-    if size == 0:
+def nQueens(n):
+
+    queens = [0] * n
+    print(queens)
+    s = n
+
+    while True:
+        while(n > 1):
+            if valid(queens, n) == True:
+                n = n -1
+            else:
+                queens[n] += 1
+                if queens[n] >= s:
+                    queens[n] = 0
+                    queens[n + 1] += 1
+        print("solution")
+        print[queens]
+        queens[0] += 1
+        n = 0
+
+    def valid(queens, n):
+        i = n + 1
+        while i < s:
+            if (queens[i] == queens[n]):
+                return False
+        i = n + 1
+        while i < s:
+            x = 1
+            if queens[i] == (queens[n] - x):
+                return False
+            i + 1
+            x + 1
+        i = n +1
+        while i < s:
+            x = 1
+            if queens[i] == (queens[n] + x):
+                return False
+            i + 1
+            x + 1
         return True
-    for i in range(size):
-        for j in range(size):
-            if (not (attack(i, j))) and (board[i][j] != 1):
-                if queens(size - 1) == True:
-                    return True
-                board[i][j] = 0
-    return False
 
-if __name__ == "__main__":
-    import sys
-    Nqueens(sys.argv)
+    if len(sys.argv) != 2:
+        print("Usage: nqueens N")
+        exit(1)
+
+    try:
+        n = int(sys.argv[1])
+    except (ValueError, TypeError):
+        print("N must be a number")
+        exit(1)
+
+    if n < 4:
+        print("N must be at least 4")
+        exit(1)
+
+    nQueens(n)
