@@ -64,8 +64,7 @@ class Base:
             **dictionary - double pointer to a dictionary
         """
         tmp = cls(1, 1)
-        if **dictionary:
-            tmp.update(**dictionary)
+        tmp.update(**dictionary)
         return(tmp)
 
     @classmethod
