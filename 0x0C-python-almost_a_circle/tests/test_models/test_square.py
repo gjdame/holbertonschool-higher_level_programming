@@ -10,8 +10,8 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
-class TestSquare(unittest.TestCase):
 
+class TestSquare(unittest.TestCase):
 
     def checking(self):
         self.assertIsNotNone(Base.__doc__)
@@ -69,11 +69,10 @@ class TestSquare(unittest.TestCase):
         r1_dictionary = r1.to_dictionary()
         self.assertDictEqual(r1_dictionary, {
             'x': 2, 'y': 2, 'size': 2, 'id': 2})
-        r1 = Rectangle(1,1)
+        r1 = Rectangle(1, 1)
         r1_dictionary = r1.to_dictionary()
         self.assertDictEqual(r1_dictionary, {
             'x': 0, 'y': 0, 'width': 1, 'height': 1, 'id': 1})
 
-    
 if __name__ == '__main__':
     unittest.main()

@@ -1,9 +1,13 @@
  #!/usr/bin/python3
+
+
 import unittest
 from models.rectangle import Rectangle
 from models.base import Base
 import sys
 from io import StringIO
+
+
 class TestRectangle(unittest.TestCase):
 
     def checking(self):
@@ -16,7 +20,7 @@ class TestRectangle(unittest.TestCase):
         cls.r3 = Rectangle(2, 4, 2, 2, 12)
 
     def test_ids(self):
-        self.assertEqual(self.r1.id, 1)
+        self.assertEqual(self.r1.id, 2)
         self.assertEqual(self.r3.id, 12)
         self.r3.id = "a"
         self.assertEqual(self.r3.id, "a")
@@ -33,7 +37,7 @@ class TestRectangle(unittest.TestCase):
             r21 = Rectangle(10, 2)
             r21.width = -10
         with self.assertRaises(TypeError, msg="x must be an integer"):
-            r31 = Rectangle(10,2)
+            r31 = Rectangle(10, 2)
             r31.x = {}
         with self.assertRaises(ValueError, msg="y must be >=0"):
             r41 = Rectangle(10, 2, 3, -1)
@@ -54,7 +58,7 @@ class TestRectangle(unittest.TestCase):
         sys.stdout = old_stdout
 
     def test_str(self):
-        self.assertEqual(self.r1.__str__(), "[Rectangle] (1) 0/0 - 10/2")
+        self.assertEqual(self.r1.__str__(), "[Rectangle] (2) 0/0 - 10/2")
         self.assertEqual(self.r3.__str__(), "[Rectangle] (a) 2/2 - 2/4")
 
     def test_update(self):
@@ -72,7 +76,7 @@ class TestRectangle(unittest.TestCase):
     def test_dictionary(self):
         r1_dictionary = self.r1.to_dictionary()
         self.assertDictEqual(r1_dictionary, {
-            'x': 0, 'y': 0, 'width': 10, 'height': 2, 'id': 1})
+            'x': 0, 'y': 0, 'width': 10, 'height': 2, 'id': 2})
         r3_dictionary = self.r3.to_dictionary()
         self.assertDictEqual(r3_dictionary, {
             'x': 2, 'y': 2, 'width': 2, 'height': 4, 'id': 12})
