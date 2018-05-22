@@ -54,7 +54,7 @@ class Base:
         Args
            json_string - represents a list of dictionaries
         """
-        return(json.loads(json_string or []))
+        return(json.loads(json_string or '[]'))
 
     @classmethod
     def create(cls, **dictionary):
@@ -64,7 +64,8 @@ class Base:
             **dictionary - double pointer to a dictionary
         """
         tmp = cls(1, 1)
-        tmp.update(**dictionary)
+        if **dictionary:
+            tmp.update(**dictionary)
         return(tmp)
 
     @classmethod
