@@ -6,6 +6,7 @@
 import unittest
 from io import StringIO
 import sys
+import pep8
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -18,6 +19,16 @@ class TestSquare(unittest.TestCase):
         self.assertIsNotNone(size.__doc__)
         self.assertIsNotNone(update.__doc__)
         self.assertIsNotNone(to_dictionary.__doc__)
+
+    def test_style_square(self):
+        """
+        Tests for pep8
+        """
+        style = pep8.StyleGuide(quiet=True)
+        p = style.check_files(['tests/test_models/test_square.py'])
+        self.assertEqual(p.total_errors, 0, "fix pep8")
+        p = style.check_files(['models/square.py'])
+        self.assertEqual(p.total_errors, 0, "fix pep8")
 
     @classmethod
     def setUpClass(cls):

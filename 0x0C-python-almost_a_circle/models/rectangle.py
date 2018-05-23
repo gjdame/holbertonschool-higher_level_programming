@@ -3,7 +3,6 @@
 '''
 Defines the class Rectangle
 '''
-
 from models.base import Base
 import sys
 

@@ -2,6 +2,7 @@
 
 
 import unittest
+import pep8
 from models.rectangle import Rectangle
 from models.base import Base
 import sys
@@ -21,6 +22,14 @@ class TestRectangle(unittest.TestCase):
         self.assertIsNotNone(__str__.__doc__)
         self.assertIsNotNone(update.__doc__)
         self.assertIsNotNone(to_dictionary.__doc__)
+
+    def test_style_rect(self):
+        """
+        Tests for pep8
+        """
+        style = pep8.StyleGuide(quiet=True)
+        p = style.check_files(['models/rectangle.py'])
+        self.assertEqual(p.total_errors, 0, "fix pep8")
 
     @classmethod
     def setUpClass(cls):
