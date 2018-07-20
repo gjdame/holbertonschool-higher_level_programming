@@ -17,7 +17,9 @@ def main(argv):
                          port=3306)
     cur = db.cursor()
     cur.execute(
-        "SELECT cities.name FROM cities INNER JOIN states ON states.id = cities.state_id WHERE states.name = %s ORDER BY cities.id ASC", [
+        "SELECT cities.name\
+        FROM cities INNER JOIN states ON states.id = cities.state_id \
+        WHERE states.name = %s ORDER BY cities.id ASC", [
             argv[4]])
 
     res = []
