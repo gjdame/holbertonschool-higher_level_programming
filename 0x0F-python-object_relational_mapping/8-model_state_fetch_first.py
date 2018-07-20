@@ -15,7 +15,7 @@ def main(argv):
     Session = sessionmaker(bind=engine)
 
     session = Session()
-    for state in session.query(State).order_by(State.id)[:1]:
+    for state in session.query(State).order_by(State.id).first():
         if state:
             print("{}: {}".format(state.id, state.name))
         else:
