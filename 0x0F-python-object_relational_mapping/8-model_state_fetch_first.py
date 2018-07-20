@@ -15,11 +15,11 @@ def main(argv):
     Session = sessionmaker(bind=engine)
 
     session = Session()
-    for state in session.query(State).order_by(State.id).first():
-        if state:
-            print("{}: {}".format(state.id, state.name))
-        else:
-            print("Nothing")
+    state = session.query(State).order_by(State.id).first()
+    if state:
+        print("{}: {}".format(state.id, state.name))
+    else:
+        print("Nothing")
     session.close()
 
 
