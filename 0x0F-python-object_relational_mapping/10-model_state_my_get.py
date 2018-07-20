@@ -8,6 +8,7 @@ from sqlalchemy.orm import sessionmaker
 
 def main(argv):
 
+    flag = 0
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                            .format(argv[1],
                                    argv[2], argv[3]), pool_pre_ping=True)
@@ -18,8 +19,11 @@ def main(argv):
     for state in session.query(State).filter(
             State.name == argv[4]).order_by(
             State.id).all():
-
-        print("{}".format(state.id))
+        if state:
+            flag = 1
+            print("{}".format(state.id))
+    if flag == 0:
+        print("Not found")
     session.close()
 
 
