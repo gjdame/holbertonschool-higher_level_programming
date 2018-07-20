@@ -10,13 +10,15 @@ def main(argv):
         print("Must enter 4 arguments")
         return
 
-    db = MySQLdb.connect (host="localhost",
+    db = MySQLdb.connect(host="localhost",
                          user=argv[1],
                          passwd=argv[2],
-                          db=argv[3],
-                          port=3306)
+                         db=argv[3],
+                         port=3306)
     cur = db.cursor()
-    cur.execute("SELECT cities.name FROM cities INNER JOIN states ON states.id = cities.state_id WHERE states.name = %s ORDER BY cities.id ASC", [argv[4]])
+    cur.execute(
+        "SELECT cities.name FROM cities INNER JOIN states ON states.id = cities.state_id WHERE states.name = %s ORDER BY cities.id ASC", [
+            argv[4]])
 
     res = []
     for row in cur.fetchall():
@@ -33,6 +35,7 @@ def main(argv):
     print(res)
 
     db.close()
+
 
 if __name__ == "__main__":
     import sys
