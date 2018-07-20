@@ -19,7 +19,7 @@ def main(argv):
     cur.execute("SELECT * FROM states WHERE name = '{}'".format(argv[4]))
 
     for row in cur.fetchall():
-        if row[0][1] == argv[4]:
+        if row[1] == argv[4]:
             print(row)
 
     db.close()
