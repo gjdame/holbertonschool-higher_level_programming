@@ -10,18 +10,20 @@ def main(argv):
         print("Must enter 4 arguments")
         return
 
-    db = MySQLdb.connect (host="localhost",
+    db = MySQLdb.connect(host="localhost",
                          user=argv[1],
                          passwd=argv[2],
-                          db=argv[3],
-                          port=3306)
+                         db=argv[3],
+                         port=3306)
     cur = db.cursor()
     cur.execute("SELECT * FROM states WHERE name = '{}'".format(argv[4]))
 
     for row in cur.fetchall():
-        print (row)
+        if row[0][1] == argv[4]:
+            print(row)
 
     db.close()
+
 
 if __name__ == "__main__":
     import sys
