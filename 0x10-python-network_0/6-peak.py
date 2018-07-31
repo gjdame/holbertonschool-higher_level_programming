@@ -7,11 +7,19 @@ def find_peak(list_of_integers):
     beg = 0
     end = len(list_of_integers) - 1
 
-    while (beg < end):
-        if list_of_integers[beg] > list_of_integers[end]:
-            peak = list_of_integers[beg]
-            end -= 1
-        else:
-            peak = list_of_integers[end]
+    mid = (end - beg) // 2
+
+    while (beg != end):
+        if list_of_integers[beg] < list_of_integers[mid]:
             beg += 1
-    return(peak)
+            mid = (end - beg) // 2
+        elif list_of_integers[end] < list_of_integers[mid]:
+            end -= 1
+            mid = (end - beg) // 2
+        elif list_of_integers[beg] < list_of_integers[end]:
+            beg += 1
+            mid = (end - beg) // 2
+        else:
+            end -= 1
+            mid = (end - beg) // 2
+    return(list_of_integers[end])
