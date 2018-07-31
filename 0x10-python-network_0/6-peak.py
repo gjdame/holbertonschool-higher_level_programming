@@ -6,20 +6,13 @@ def find_peak(list_of_integers):
 
     beg = 0
     end = len(list_of_integers) - 1
+    return(peak(list_of_integers, 0, end))
 
-    mid = (end - beg) // 2
+def peak(list_int, low, high):
 
-    while (beg != end):
-        if list_of_integers[beg] < list_of_integers[mid]:
-            beg += 1
-            mid = (end - beg) // 2
-        elif list_of_integers[end] < list_of_integers[mid]:
-            end -= 1
-            mid = (end - beg) // 2
-        elif list_of_integers[beg] < list_of_integers[end]:
-            beg += 1
-            mid = (end - beg) // 2
-        else:
-            end -= 1
-            mid = (end - beg) // 2
-    return(list_of_integers[end])
+    if low == high:
+           return(list_int[high])
+    mid = (high + low) // 2
+    if list_int[mid] > list_int[mid + 1]:
+           return(peak(list_int, low, mid))
+    return(peak(list_int, mid + 1, high))
