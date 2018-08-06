@@ -19,9 +19,9 @@ if __name__ == "__main__":
         id = data.get('id')
 
         name = data.get('name')
-        if id == None or name == None:
+        if id is None or name is None:
             print("No result")
         else:
-            print ("[{}] {}".format(id, name))
+            print("[{}] {}".format(id, name))
     except:
         print("Not a valid JSON")
