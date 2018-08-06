@@ -3,8 +3,9 @@
 import urllib.request
 import sys
 
-url = sys.argv[1]
-req = urllib.request.Request(url)
-with urllib.request.urlopen(req) as response:
-    html = response.getheader('X-Request-ID')
-    print(html)
+if __name__ == "__main__":
+    url = sys.argv[1]
+
+    with urllib.request.urlopen(url) as response:
+        html = response.getheader('X-Request-ID')
+        print(html)
