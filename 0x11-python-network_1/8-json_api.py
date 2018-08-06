@@ -13,9 +13,9 @@ if __name__ == "__main__":
     data = {'q': rep}
 
     r = requests.post('http://0.0.0.0:5000/search_user', data=data)
-    data = r.json()
 
     try:
+        data = r.json()
         id = data.get('id')
 
         name = data.get('name')
