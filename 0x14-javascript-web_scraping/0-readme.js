@@ -4,11 +4,12 @@ reads a file and prints the contents
 */
 const fs = require('fs');
 
-file = process.argv[2];
+let file = process.argv[2];
 
-fs.readFile(file, function(err, data) {
+fs.readFile(file, function (err, data) {
   if (err) {
-    throw err;
+    console.log(err);
+  } else {
+    console.log(data.toString());
   }
-  console.log(data.toString());
 });
