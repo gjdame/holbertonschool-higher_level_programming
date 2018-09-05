@@ -5,7 +5,6 @@ the episode number matches a given integer.
 */
 const request = require('request');
 
-let id = '18';
 let url = 'http://swapi.co/api/films/';
 let count = 0;
 
@@ -18,11 +17,11 @@ request(url, function (err, res, body) {
     for (let i = 0; i < results.length; i++) {
       for (let j = 0; j < results[i]['characters'].length; j++) {
         let s = results[i]['characters'][j];
-        if (s.includes('people/' + id)) {
+        if (s.includes('/18/')) {
           count += 1;
         }
       }
     }
+    console.log(count);
   }
-  console.log(count);
 });
